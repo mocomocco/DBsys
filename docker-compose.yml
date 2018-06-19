@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRESQL_DATABASE_PASSWORD: dbdb
+    stdin_open: true
+    ports:
+      - "5432"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
